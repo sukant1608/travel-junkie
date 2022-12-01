@@ -29,7 +29,7 @@ import axios from 'axios';
         },
         async beforeMount() {
           try {
-            const res = await axios.get(`http://localhost:5000/api/blog/user/${this.$store.state.username}`)
+            const res = await axios.get(`https://travel-junkie-back.onrender.com/api/blog/user/${this.$store.state.username}`)
             this.blogList = res.data
           } catch (error) {
             console.log(error);

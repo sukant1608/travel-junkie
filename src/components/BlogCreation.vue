@@ -55,7 +55,7 @@ import axios from 'axios'
                         do_not_do:this.dnd.split(","),
                         image_url:this.image_url
                     }
-                     await axios.post("http://localhost:5000/api/blog/addBlog",blogData)
+                     await axios.post("https://travel-junkie-back.onrender.com/api/blog/addBlog",blogData)
                     this.$router.push({path:"/dashboard"})
                 } catch (error) {
                     this.error = "Enter all the information."

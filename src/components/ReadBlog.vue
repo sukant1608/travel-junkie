@@ -40,7 +40,7 @@ import axios from 'axios';
           }
         },
         async created() {
-          const res = await axios.get(`http://localhost:5000/api/blog/${this.$route.params.id}`)
+          const res = await axios.get(`https://travel-junkie-back.onrender.com/api/blog/${this.$route.params.id}`)
           this.blog = res.data
           console.log(this.blog);
         }

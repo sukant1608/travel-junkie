@@ -55,7 +55,7 @@
             },
             async getSearchResults() {
                 try {
-                    const res =  await axios.get(`http://localhost:5000/api/explore/${this.searchInput}`)
+                    const res =  await axios.get(`https://travel-junkie-back.onrender.com/api/explore/${this.searchInput}`)
                     while(res.data.length) this.searchedItems.push(res.data.splice(0,4));
                 } catch (error) {
                     console.log(error);

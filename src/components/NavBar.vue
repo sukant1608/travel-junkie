@@ -79,7 +79,7 @@ export default {
         async login() {
           try {
             if(this.valid("login")) {
-              const res =await axios.post("http://localhost:5000/api/auth/login",
+              const res =await axios.post("https://travel-junkie-back.onrender.com/api/auth/login",
             {username:this.username,password:this.password})
               this.$store.dispatch('authenticate',{username:res.data.username,id:res.data.id,password:res.data.password})
               this.hideModal();
@@ -94,7 +94,7 @@ export default {
         async register() {
           try {
             if(this.valid("register")) {
-              const res =await axios.post("http://localhost:5000/api/auth/register",
+              const res =await axios.post("https://travel-junkie-back.onrender.com/api/auth/register",
               {email:this.email,username:this.username,password:this.password})
               this.$store.dispatch('authenticate',{username:res.data.username,id:res.data.id})
               this.hideModal()

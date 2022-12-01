@@ -21,7 +21,7 @@ import axios from 'axios';
             }
         },
         async created() {
-            const res = (await axios.get(`http://localhost:5000/api/user/${this.$store.state.id}`)).data
+            const res = (await axios.get(`https://travel-junkie-back.onrender.com/api/user/${this.$store.state.id}`)).data
             this.username = res.username
             this.email = res.email
             this.status = res.status

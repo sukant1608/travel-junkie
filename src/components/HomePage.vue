@@ -106,7 +106,7 @@ export default {
         },
     async addReview() {
       try {
-        await axios.post("http://localhost:5000/api/review/add",{first_name:this.first_name,last_name:this.last_name,review:this.review})
+        await axios.post("https://travel-junkie-back.onrender.com/api/review/add",{first_name:this.first_name,last_name:this.last_name,review:this.review})
         this.first_name = ''
         this.last_name =''
         this.review = ''

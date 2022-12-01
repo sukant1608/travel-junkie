@@ -40,7 +40,7 @@
         },
         methods:{
           async changeStatus(){
-            await axios.patch('http://localhost:5000/api/user/status',
+            await axios.patch('https://travel-junkie-back.onrender.com/api/user/status',
             {id:this.$store.state.id,password:this.$store.state.password,status:this.newStatus})
             this.newStatus = ""
             window.location.reload()
