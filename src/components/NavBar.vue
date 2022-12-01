@@ -1,19 +1,19 @@
 <template>
   <div>
     <div class="topnav" id="myTopnav">
-        <a  href="/" class="active">travel-junkie</a>
-        <a v-if="this.$store.state.isAuth" href="/dashboard" >Home</a>
-        <a v-if="this.$store.state.isAuth" href="/create" >Write</a>
-        <a href="/explore" >Search</a>
-        <a href="javascript:void(0);" class="icon" v-on:click="myFunction">
+        <router-link  to="/" class="active">travel-junkie</router-link>
+        <router-link v-if="this.$store.state.isAuth" to="/dashboard" >Home</router-link>
+        <router-link v-if="this.$store.state.isAuth" to="/create" >Write</router-link>
+        <router-link to="/explore" >Search</router-link>
+        <router-link to="javascript:void(0);" class="icon" v-on:click="myFunction">
             <i class="fa fa-bars"></i>
-        </a>
+        </router-link>
         <div v-if="!this.$store.state.isAuth" class="topnav-right">
           <a v-on:click="showModal">Signup</a>
         </div>
         <div v-else class="topnav-right">
-          <a>Hi {{this.$store.state.username}} !!</a>
-          <a v-on:click="logout">Logout</a>
+          <router-link to="/">Hi {{this.$store.state.username}} !!</router-link>
+          <router-link to="/" v-on:click="logout">Logout</router-link>
         </div>
     </div>
     <div id="myModal" class="modal">
