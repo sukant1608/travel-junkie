@@ -13,7 +13,7 @@
         </div>
         <div v-else class="topnav-right">
           <router-link to="/">Hi {{this.$store.state.username}} !!</router-link>
-          <router-link to="/" v-on:click="logout">Logout</router-link>
+          <a to="/" v-on:click="logout">Logout</a>
         </div>
     </div>
     <div id="myModal" class="modal">
