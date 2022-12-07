@@ -56,6 +56,7 @@
             async getSearchResults() {
                 try {
                     const res =  await axios.get(`https://travel-junkie-back.onrender.com/api/explore/${this.searchInput}`)
+                    this.searchedItems = []
                     while(res.data.length) this.searchedItems.push(res.data.splice(0,4));
                 } catch (error) {
                     console.log(error);
@@ -135,6 +136,10 @@ img {
   border-radius: 1em;
   background: linear-gradient(to right, #FFFFFF, #ECE9E6);
   color: white;
+  text-shadow: -1px 1px 0 #000,
+                          1px 1px 0 #000,
+                         1px -1px 0 #000,
+                        -1px -1px 0 #000;
 }
 
 .card__body {

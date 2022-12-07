@@ -1,13 +1,22 @@
 <template>
-    <form class="blog-form">
-        <h1>Create a new post!!</h1>
-        <p>Image url</p>
+    <div class="blog-form">
+        <h1>New Blog</h1>
+        <h3>Feilds marked with <span>*</span> are mandatory.</h3>
+        <p>Image url
+            <span>*</span>
+        </p>
         <input required v-model="image_url" placeholder="Title image url">
-        <p>Title</p>
+        <p>Title
+            <span>*</span>
+        </p>
         <input required v-model="blog_title" placeholder="Post title">
-        <p>Place of visit</p>
+        <p>Place of visit
+            <span>*</span>
+        </p>
         <input required v-model="location" placeholder="Destination">
-        <p>Content</p>
+        <p>Content
+            <span>*</span>
+        </p>
         <textarea required v-model="description" name="" id="" rows="10" placeholder="Write about your experience..."></textarea>
         <p>Must visit</p>
         <input v-model="visits" placeholder="Seperate each point with ,">
@@ -20,8 +29,8 @@
         </center>
         <br> <br>
         <button @click="createBlog" style="float: right;margin-left: 20px;" class="dark-btn">POST</button>
-        <button style="float: right;" class="danger-btn">CLEAR</button> 
-    </form>
+        <button @click="clearFields" style="float: right;" class="danger-btn">CLEAR</button> 
+    </div>
 
 
 </template>
@@ -55,12 +64,22 @@ import axios from 'axios'
                         do_not_do:this.dnd.split(","),
                         image_url:this.image_url
                     }
-                     await axios.post("https://travel-junkie-back.onrender.com/api/blog/addBlog",blogData)
-                    this.$router.push({path:"/dashboard"})
+                    await axios.post("https://travel-junkie-back.onrender.com/api/blog/addBlog",blogData)
+                    this.clearFields()
+                    this.error = ''
                 } catch (error) {
                     this.error = "Enter all the information."
                 }
             },
+            clearFields() {
+                this.blog_title="";
+                this.location="";
+                this.description="";
+                this.image_url="";
+                this.visits="";
+                this.tips="";
+                this.dnd="";
+            }
        
 
         }
@@ -79,6 +98,8 @@ import axios from 'axios'
         border-radius: 5px;
         padding: 10px;
     }
-   
-
+    span {
+        color: var(--red);
+        font-size: 1.5rem;
+    }
 </style>

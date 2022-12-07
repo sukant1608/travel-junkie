@@ -1,18 +1,14 @@
 <template>
     <div>
-        <div id="slider">
-            <transition-group tag="div" :name="transitionName" class="slides-group">
-                <div v-if="show" :key="current" class="slide" :class="slides[current].className">
-                <h1>{{slides[current].title}}!</h1>
-                </div>
-            </transition-group>
-            <div class="btn btn-prev" aria-label="Previous slide" @click="slide(-1)">
-                &#10094;
-            </div>
-            <div class="btn btn-next" aria-label="Next slide" @click="slide(1)">
-                &#10095;
-            </div>
-        </div> <br> <br>
+      <div id="slider">
+        <transition-group tag="div" :name="transitionName" class="slides-group">
+          <div v-if="show" :key="current" class="slide"  :style="{backgroundColor:slides[current].className}">
+          <h1>{{slides[current].title}}</h1>
+          </div>
+        </transition-group>
+        <div class="btn btn-prev" aria-label="Previous slide" @click="slide(-1)">&#10094;</div>
+        <div class="btn btn-next" aria-label="Next slide" @click="slide(1)">&#10095;</div>
+       </div> <br> <br>
       <div class="parent" style="width: 100%">
       <div style="padding: 0px 50px" class="child">
         <h3 id="feed-head">
@@ -55,14 +51,8 @@
     </div> <br> <br>
     <div class="nav">
       <a href="/" class="logo">travel-junkie</a>
-      
       <div class="nav-right">
-        <img
-          src="../assets/icons/Facebook.svg"
-          style="margin-right: 10px"
-          alt="cart"
-        />
-        <img src="../assets/icons/instagram.svg" alt="search" />
+        <a href="/" class="logo">Made by : Sukant Thakur</a>
       </div>
       <br />
       <br />
@@ -87,9 +77,9 @@ export default {
             last_name:"",
             review:"",
             slides: [
-            { className: "blue", title:"Hey welcome to travel-junkie" },
-            { className: "red" ,title:"Explore all the places at one place"},
-            { className: "yellow" ,title:"Tell the world your travel journey"}
+            { className: "#4a69bd", title:"Hey welcome to travel-junkie" },
+            { className: "#e55039" ,title:"Explore all the places at one place"},
+            { className: "#f6b93b" ,title:"Tell the world your travel journey"}
             ]
         }
     },
@@ -168,19 +158,6 @@ textarea {
   transform: translate(100%);
 }
 
-/* SLIDES CLASSES */
-
-.blue {
-  background: #4a69bd;
-}
-
-.red {
-  background: #e55039;
-}
-
-.yellow {
-  background: #f6b93b;
-}
 
 /* SLIDER STYLES */
 
@@ -243,7 +220,7 @@ textarea {
 .nav {
     overflow: hidden;
     padding: 20px 10px;
-    background-color: #4a69bd
+    background-color: var(--blue)
 }
 .nav a {
     float: left;
@@ -257,6 +234,7 @@ textarea {
     font-size: 1.5rem;
     font-weight: 900;
     margin-left: 5vw;
+    color: white;
 }
 
 .nav-right {
@@ -272,31 +250,37 @@ h3 {
 }
 </style>
 <style>
+
+  :root {
+    --blue: #4a69bd;
+    --red :#e55039;
+    --link:#0000EE;
+  }
   .dark-btn {
     padding: 10px;
     color: white;
-    background-color: #4a69bd;
+    background-color: var(--blue);
     border-radius: 10px;
     border: 2px solid whitesmoke;
     cursor: pointer;
   }
   .dark-btn:hover {
     background-color: whitesmoke;
-    border: 2px solid #4a69bd;
-    color: #4a69bd;
+    border: 2px solid var(--blue);
+    color: var(--blue);
   }
   .danger-btn {
     padding: 10px;
     color: white;
-    background-color: red;
+    background-color: var(--red);
     border-radius: 10px;
     border: 2px solid whitesmoke;
     cursor: pointer;
   }
   .danger-btn:hover {
     background-color: whitesmoke;
-    border: 2px solid red;
-    color: red;
+    border: 2px solid var(--red);
+    color: var(--red);
   }
 
 </style>
