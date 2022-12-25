@@ -13,13 +13,14 @@
             <p class="likes"><b>Description: </b> {{blog.description.substr(0,100)}}...</p>
         </div>
         <button @click="readBlog(blog._id)" style="float: right;width: 10%;" class="dark-btn">View</button>
+        <button @click="deleteBlog(blog._id)" style="float: right;width: 10%;" class="danger-btn">Delete</button>
       </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-
+import {server} from '../enviornment'
     export default {
         name:'FeedPost',
         data(){
@@ -29,7 +30,7 @@ import axios from 'axios';
         },
         async beforeMount() {
           try {
-            const res = await axios.get(`https://travel-junkie-back.onrender.com/api/blog/user/${this.$store.state.username}`)
+            const res = await axios.get(`${server}api/blog/user/${this.$store.state.username}`)
             this.blogList = res.data
           } catch (error) {
             console.log(error);
@@ -39,6 +40,17 @@ import axios from 'axios';
         methods:{
           readBlog(id) {
             this.$router.push({path:`/explore/${id}`})
+          },
+          async deleteBlog(id) {
+            try {
+              const res = await axios.delete(`${server}api/blog/deleteBlog`,{id:id})
+              if(res) {
+                alert("Blog deleted successfully")
+              }
+              location.reload()
+            }catch(error) {
+              console.log(error);
+            }
           }
         }
     }

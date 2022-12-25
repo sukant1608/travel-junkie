@@ -64,6 +64,7 @@
 
 <script>
 import axios from 'axios';
+import {server} from './enviornment'
 
 export default {
     name:'HomePage',
@@ -96,7 +97,7 @@ export default {
         },
     async addReview() {
       try {
-        await axios.post("https://travel-junkie-back.onrender.com/api/review/add",{first_name:this.first_name,last_name:this.last_name,review:this.review})
+        await axios.post(`${server}api/review/add`,{first_name:this.first_name,last_name:this.last_name,review:this.review})
         this.first_name = ''
         this.last_name =''
         this.review = ''

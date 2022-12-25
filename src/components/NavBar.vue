@@ -43,6 +43,7 @@
 
 <script>
 import axios from 'axios'
+import {server} from './enviornment'
 
 export default {
     name:'NavBar',
@@ -83,7 +84,7 @@ export default {
         async login() {
           try {
             if(this.valid("login")) {
-              const res =await axios.post("https://travel-junkie-back.onrender.com/api/auth/login",
+              const res =await axios.post(`${server}api/auth/login`,
             {username:this.username,password:this.password})
               this.$store.dispatch('authenticate',{username:res.data.username,id:res.data.id,password:res.data.password})
               this.hideModal();
@@ -100,7 +101,7 @@ export default {
         async register() {
           try {
             if(this.valid("register")) {
-              const res =await axios.post("https://travel-junkie-back.onrender.com/api/auth/register",
+              const res =await axios.post(`${server}api/auth/register`,
               {email:this.email,username:this.username,password:this.password})
               this.$store.dispatch('authenticate',{username:res.data.username,id:res.data.id})
               this.hideModal()

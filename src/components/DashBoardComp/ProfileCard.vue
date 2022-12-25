@@ -9,6 +9,7 @@
 
 <script>
 import axios from 'axios';
+import {server} from '../enviornment'
 
     export default {
         name:'ProfileCard',
@@ -21,7 +22,7 @@ import axios from 'axios';
             }
         },
         async created() {
-            const res = (await axios.get(`https://travel-junkie-back.onrender.com/api/user/${this.$store.state.id}`)).data
+            const res = (await axios.get(`${server}api/user/${this.$store.state.id}`)).data
             this.username = res.username
             this.email = res.email
             this.status = res.status
@@ -38,12 +39,9 @@ import axios from 'axios';
         border: 5px solid #4a69bd;
         padding: 10px 0;
         border-radius: 5px;
-
     }
     .title {
         color: #4a69bd;
         font-size: 18px;
     }
-
-    
 </style>

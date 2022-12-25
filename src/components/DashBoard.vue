@@ -27,6 +27,8 @@
     import ProfileCard from './DashBoardComp/ProfileCard.vue';
     import FeedPost from './DashBoardComp/FeedPost.vue';
     import axios from 'axios';
+    import {server} from './enviornment'
+    
     export default {
         name:'DashBoard',
         components:{
@@ -40,9 +42,10 @@
         },
         methods:{
           async changeStatus(){
-            await axios.patch('https://travel-junkie-back.onrender.com/api/user/status',
+            await axios.patch(`${server}api/user/status`,
             {id:this.$store.state.id,password:this.$store.state.password,status:this.newStatus})
             this.newStatus = ""
+            location.reload()
           },
           
         }

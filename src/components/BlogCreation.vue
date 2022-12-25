@@ -37,6 +37,8 @@
 
 <script>
 import axios from 'axios'
+import {server} from './enviornment'
+
     export default {
         name:'BlogCreation',
         data() {
@@ -64,7 +66,7 @@ import axios from 'axios'
                         do_not_do:this.dnd.split(","),
                         image_url:this.image_url
                     }
-                    await axios.post("https://travel-junkie-back.onrender.com/api/blog/addBlog",blogData)
+                    await axios.post(`${server}api/blog/addBlog`,blogData)
                     this.clearFields()
                     this.error = ''
                 } catch (error) {

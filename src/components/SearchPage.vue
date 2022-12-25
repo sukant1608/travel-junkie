@@ -36,6 +36,8 @@
 
 <script>
     import axios from 'axios';
+    import {server} from './enviornment'
+
     export default {
         name:"SearchPage",
         data(){
@@ -55,7 +57,7 @@
             },
             async getSearchResults() {
                 try {
-                    const res =  await axios.get(`https://travel-junkie-back.onrender.com/api/explore/${this.searchInput}`)
+                    const res =  await axios.get(`${server}api/explore/${this.searchInput}`)
                     this.searchedItems = []
                     while(res.data.length) this.searchedItems.push(res.data.splice(0,4));
                 } catch (error) {
