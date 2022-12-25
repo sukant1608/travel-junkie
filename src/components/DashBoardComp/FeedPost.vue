@@ -47,7 +47,7 @@ import {server} from '../enviornment'
               if(res) {
                 alert("Blog deleted successfully")
               }
-              location.reload()
+              // location.reload()
             }catch(error) {
               console.log(error);
             }
