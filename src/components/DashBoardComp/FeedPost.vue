@@ -19,8 +19,10 @@
 </template>
 
 <script>
+
 import axios from 'axios';
 import {server} from '../enviornment'
+
     export default {
         name:'FeedPost',
         data(){
@@ -47,7 +49,6 @@ import {server} from '../enviornment'
               if(res) {
                 alert("Blog deleted successfully")
               }
-              // location.reload()
             }catch(error) {
               console.log(error);
             }
@@ -117,7 +118,6 @@ import {server} from '../enviornment'
     margin-bottom: 20px;
     position: relative;
     width: 100%;
-    /* min-height: 400px; */
     display: inline-block;
     border: 1px solid rgba(7, 7, 7, 0.24);
     }
@@ -187,7 +187,6 @@ import {server} from '../enviornment'
     }
     
     .col-9 .card .top .userDetails h3 {
-    /* width: 100%; */
     font-size: 16px;
     color: black;
     font-weight: 500;
@@ -266,9 +265,6 @@ import {server} from '../enviornment'
     padding: 10px 0;
     }
     
-    
-
-    
     input.text {
     width: 100%;
     border: none;
@@ -300,13 +296,9 @@ import {server} from '../enviornment'
     }
 
     input {
-  padding: 5px 12px;
-  border: 1px solid #ccc;
-  width: 90%;
-}
-
-
-    
-
+      padding: 5px 12px;
+      border: 1px solid #ccc;
+      width: 90%;
+    }
     
 </style>

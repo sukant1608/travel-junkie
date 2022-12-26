@@ -45,7 +45,6 @@
             await axios.patch(`${server}api/user/status`,
             {id:this.$store.state.id,password:this.$store.state.password,status:this.newStatus})
             this.newStatus = ""
-            // location.reload()
           },
           
         }
